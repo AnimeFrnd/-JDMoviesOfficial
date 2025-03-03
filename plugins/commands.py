@@ -193,13 +193,12 @@ async def start(client, message):
                 reply_markup = InlineKeyboardMarkup(btn)
                 caption = (
                     f"👋 Hello {message.from_user.mention}\n\n"
-                    "You have not joined all our *Updates Channels* yet.\n"
-                    "Please click the *Join Updates Channels* buttons below and ensure that you join *all* the listed channels.\n"
-                    "After that, please try again.\n\n"
-                    "आपने हमारे *सभी Updates Channels* को जॉइन नहीं किया है।\n"
-                    "कृपया *Join Updates Channels* बटन पर क्लिक करें और सुनिश्चित करें कि आपने *सभी चैनल्स* को जॉइन किया है।\n"
-                    "इसके बाद, कृपया फिर से प्रयास करें।"
-                )
+                    "ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ\n"
+                    "ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ʀᴇʟᴏᴀᴅ button ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ \n"
+                    "ʀᴇǫᴜᴇꜱᴛᴇᴅ ꜰɪʟᴇ. \n\n"
+                    " కింద ఇచ్చిన 4 చానెల్స్ లో జాయిన్ అయ్యి\n"
+                    "తరవాత Try Again క్లిక్ చేస్తే File📁 వస్తది..:)\n"
+                    "🥰")
                 await message.reply_photo(
                     photo=random.choice(FSUB_PICS),
                     caption=caption,
