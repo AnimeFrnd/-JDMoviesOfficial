@@ -84,7 +84,7 @@ HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', 'https://t.me/vs_Files_Mx_player/23
 # ============================
 # Link Shortener Configuration
 # ============================
-IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
+IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'shortxlinks.com')
 SHORTLINK_API = environ.get('SHORTLINK_API', '0bd88e310de46cc857e97ed4930b9962403e7290')
 TUTORIAL = environ.get('TUTORIAL', 'https://t.me/vs_Files_Mx_player/230')  # Tutorial video link for opening shortlink website
