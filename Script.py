@@ -1,7 +1,17 @@
 class script(object):
-    START_TXT = """<b>ʜᴇʏ {}, {}\n\nɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ ʙᴏᴛ. ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !! 😍\n\n<blockquote>🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 </a></blockquote></b>"""
+    START_TXT = """<b><blockquote>ʜᴇʟʟᴏ {} 👋,</blockquote>
     
-    GSTART_TXT = """<b>ʜᴇʏ {}, {}\n\nɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ ʙᴏᴛ. ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !! 😍\n\n<blockquote>🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 </a></blockquote></b>"""
+I Aᴍ Lᴀᴛᴇꜱᴛ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Pᴏᴡᴇʀꜰᴜʟ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ. I Cᴀɴ Sʜᴀʀᴇ "Aɴɪᴍᴇ,Sᴇʀɪᴇs Aɴᴅ Dᴜʙʙᴇᴅ Mᴏᴠɪᴇs & Eᴛᴄ..." Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Sᴇᴇ ᴛʜᴇ Mᴀɢɪᴄ🪄
+
+Oᴜʀ Aɴᴏᴛʜᴇʀ Bᴏᴛ 🍁 - <a href="https://t.me/Vs_auto_filter_bot">𝐁𝐎𝐓</a> (ᴀʟʟ ᴍᴀʀᴠᴇʟ ᴍᴏᴠɪᴇs "Free" ✅) 
+\n\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
+    
+    GSTART_TXT = """<b><blockquote>ʜᴇʟʟᴏ {} 👋,</blockquote>
+    
+I Aᴍ Lᴀᴛᴇꜱᴛ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Pᴏᴡᴇʀꜰᴜʟ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ. I Cᴀɴ Sʜᴀʀᴇ "Aɴɪᴍᴇ,Sᴇʀɪᴇs Aɴᴅ Dᴜʙʙᴇᴅ Mᴏᴠɪᴇs & Eᴛᴄ..." Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Sᴇᴇ ᴛʜᴇ Mᴀɢɪᴄ🪄
+
+Oᴜʀ Aɴᴏᴛʜᴇʀ Bᴏᴛ 🍁 - <a href="https://t.me/Vs_auto_filter_bot">𝐁𝐎𝐓</a> (ᴀʟʟ ᴍᴀʀᴠᴇʟ ᴍᴏᴠɪᴇs "Free" ✅) 
+\n\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
     
     HELP_TXT = """<b>ʜᴇʏ {},
     
