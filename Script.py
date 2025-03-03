@@ -1,9 +1,9 @@
 class script(object):
-    START_TXT = """<b> 🚩 जय श्री राम 🚩\n\n ʜᴇʏ {}, {}\n\n𝒊 𝑨𝒎 𝑻𝒉𝒆 𝑴𝒐𝒔𝒕 𝑷𝒐𝒘𝒆𝒓𝒇𝒖𝒍 𝑨𝒖𝒕𝒐 𝑭𝒊𝒍𝒕𝒆𝒓 𝑩𝒐𝒕 𝑾𝒊𝒕𝒉 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑭𝒆𝒂𝒕𝒖𝒓𝒆.</b>"""
-
-    GSTART_TXT = """<b>🚩 जय श्री राम 🚩\n\nʜᴇʏ {},\n\n𝒊 𝑨𝒎 𝑻𝒉𝒆 𝑴𝒐𝒔𝒕 𝑷𝒐𝒘𝒆𝒓𝒇𝒖𝒍 𝑨𝒖𝒕𝒐 𝑭𝒊𝒍𝒕𝒆𝒓 𝑩𝒐𝒕 𝑾𝒊𝒕𝒉 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑭𝒆𝒂𝒕𝒖𝒓𝒆.</b>"""
+    START_TXT = """<b>ʜᴇʏ {}, {}\n\nɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ ʙᴏᴛ. ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !! 😍\n\n<blockquote>🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 </a></blockquote></b>"""
     
-    HELP_TXT = """<b>🚩 जय श्री राम 🚩\n\nʜᴇʏ {},
+    GSTART_TXT = """<b>ʜᴇʏ {}, {}\n\nɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ ʙᴏᴛ. ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !! 😍\n\n<blockquote>🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 </a></blockquote></b>"""
+    
+    HELP_TXT = """<b>ʜᴇʏ {},
     
 ᴡᴇ ʜᴀᴠᴇ ᴅᴇᴠɪᴅᴇᴅ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ ꜰᴏʀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀꜱ ᴀɴᴅ ʙᴏᴛ ᴜꜱᴇʀꜱ.\nᴀɴᴅ ᴡᴇ ʜᴀᴠᴇ ꜱᴏᴍᴇ ᴇxᴛʀᴀ ꜰᴇᴀᴛᴜʀᴇꜱ
 </b>"""
@@ -271,7 +271,7 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = """<b><a href="https://t.me/Deendayal_dhakad">{file_name}</a></b>\n\n<b>⚜️ Powered By : <a href=https://t.me/Deendayal_dhakad>[Deendayal_Dhakad]</a></b>"""
+    CAPTION = """<b><a href="https://telegram.me/Aryas_Movies_Finder_bot?start=Telugu_Movies_99">{file_Caption}</a></b>\n\n<b>𝖩𝗈𝗂𝗇➥ 「<a href="https://t.me/Telugu_Movies_999">𝙏𝙀𝙇𝙐𝙂𝙐 𝙈𝙊𝙑𝙄𝙀𝙎 999</a>」</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>🏷 Title</b>: <a href={url}>{title}</a>
