@@ -57,10 +57,10 @@ async def start(client, message):
                     InlineKeyboardButton('🔍 Tᴏᴘ Sᴇᴀʀᴄʜɪɴɢ', callback_data="topsearch"),
                     InlineKeyboardButton(' DVDRIPS 📀', url=f'https://t.me/EarlywatchBot')
                 ],[
+                    InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 🌺', callback_data='donation'),
                     InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
                     InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
                 ],[
-                   # InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 💰', callback_data='donation'),
                     InlineKeyboardButton('🪅 Mᴀɪɴ Cʜᴀɴɴᴇʟ 🪅', url=f'https://t.me/Telugu_Movies_999')
                 ],[
                     InlineKeyboardButton('🔖 ᴍɪᴅᴅʟᴇ ᴄʟᴀss ʙᴇꜱᴛ ᴅᴇᴀʟꜱ 🔖', url=f'https://t.me/Vs_Best_Deals')
@@ -94,10 +94,10 @@ async def start(client, message):
                     InlineKeyboardButton('🔍 Tᴏᴘ Sᴇᴀʀᴄʜɪɴɢ', callback_data="topsearch"),
                     InlineKeyboardButton(' DVDRIPS 📀', url=f'https://t.me/EarlywatchBot')
                 ],[
+                    InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 🌺', callback_data='donation'),
                     InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
                     InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
                 ],[
-                   # InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 💰', callback_data='donation'),
                     InlineKeyboardButton('🪅 Mᴀɪɴ Cʜᴀɴɴᴇʟ 🪅', url=f'https://t.me/Telugu_Movies_999')
                 ],[
                     InlineKeyboardButton('🔖 ᴍɪᴅᴅʟᴇ ᴄʟᴀss ʙᴇꜱᴛ ᴅᴇᴀʟꜱ 🔖', url=f'https://t.me/Vs_Best_Deals')
