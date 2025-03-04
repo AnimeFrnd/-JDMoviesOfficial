@@ -35,9 +35,9 @@ async def start(client, message):
         await message.react(emoji=random.choice(REACTIONS), big=True) 
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                    InlineKeyboardButton('❤️ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ❤️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('💕 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 💕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('🍁 Update Channel 🍁', url=CHNL_LNK)
+                    InlineKeyboardButton('🌺 Update Channel 🌺', url=CHNL_LNK)
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.GSTART_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup, disable_web_page_preview=True)
@@ -58,8 +58,8 @@ async def start(client, message):
                     InlineKeyboardButton(' DVDRIPS 📀', url=f'https://t.me/EarlywatchBot')
                 ],[
                     InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 🌺', callback_data='donation'),
-                    InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
-                    InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
+                   # InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
+                   # InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
                 ],[
                     InlineKeyboardButton('🪅 Mᴀɪɴ Cʜᴀɴɴᴇʟ 🪅', url=f'https://t.me/Telugu_Movies_999')
                 ],[
@@ -95,8 +95,8 @@ async def start(client, message):
                     InlineKeyboardButton(' DVDRIPS 📀', url=f'https://t.me/EarlywatchBot')
                 ],[
                     InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 🌺', callback_data='donation'),
-                    InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
-                    InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
+                  #  InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
+                  #  InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
                 ],[
                     InlineKeyboardButton('🪅 Mᴀɪɴ Cʜᴀɴɴᴇʟ 🪅', url=f'https://t.me/Telugu_Movies_999')
                 ],[
