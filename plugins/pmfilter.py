@@ -1685,8 +1685,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton(' DVDRIPS 📀', url=f'https://t.me/EarlywatchBot')
                 ],[
                     InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 🌺', callback_data='donation'),
-                    InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
-                    InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
+                   # InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
+                   # InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
                 ],[
                     InlineKeyboardButton('🪅 Mᴀɪɴ Cʜᴀɴɴᴇʟ 🪅', url=f'https://t.me/Telugu_Movies_999')
                 ],[
