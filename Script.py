@@ -281,7 +281,7 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = """<b><a href="https://t.me/Telugu_Movies_999">{file_name}</a></b>\n\n<b>📤 Uploaded By : <a href=https://t.me/Telugu_Movies_999>Telugu Movies 999🌺</a></b>"""
+    CAPTION = """<b><a href="https://t.me/Telugu_Movies_999">{file_Caption}</a></b>\n\n<b>📤 Uploaded By : <a href=https://t.me/Telugu_Movies_999>Telugu Movies 999🌺</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>🏷 Title</b>: <a href={url}>{title}</a>
