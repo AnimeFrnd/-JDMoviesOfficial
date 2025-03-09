@@ -251,69 +251,74 @@ def unpack_new_file_id(new_file_id):
     return file_id, file_ref
 
 
-async def send_msg(bot, filename, caption): 
+async def send_msg(bot, filename, caption, file_id): 
     try:
-        filename = re.sub(r'\(\@\S+\)|\[\@\S+\]|\b@\S+|\bwww\.\S+', '', filename).strip()
-        caption = re.sub(r'\(\@\S+\)|\[\@\S+\]|\b@\S+|\bwww\.\S+', '', caption).strip()
+        # Cleaning filename and caption (removing unwanted characters)
+        filename = re.sub(r'@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', filename).strip()
+        caption = re.sub(r'@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', caption).strip()
         
+        # Extracting Year
         year_match = re.search(r"\b(19|20)\d{2}\b", caption)
-        year = year_match.group(0) if year_match else None
+        year = year_match.group(0) if year_match else "Unknown"
 
-        pattern = r"(?i)(?:s|season)0*(\d{1,2})"
-        season = re.search(pattern, caption) or re.search(pattern, filename)
-        season = season.group(1) if season else None 
+        # Extracting Season
+        season_match = re.search(r"(?i)(?:s|season)0*(\d{1,2})", caption) or re.search(r"(?i)(?:s|season)0*(\d{1,2})", filename)
+        season = f"Season {season_match.group(1)}" if season_match else "Unknown"
 
-        if year:
-            filename = filename[: filename.find(year) + 4]  
-        elif season and season in filename:
-            filename = filename[: filename.find(season) + 1]
+        # Determine Season or Year
+        season_or_year = season if "Season" in season else f"({year})"
 
-        qualities = ["ORG", "org", "hdcam", "HDCAM", "HQ", "hq", "HDRip", "hdrip", "camrip", "CAMRip", "hdtc", "predvd", "DVDscr", "dvdscr", "dvdrip", "dvdscr", "HDTC", "dvdscreen", "HDTS", "hdts"]
-        quality = await get_qualities(caption.lower(), qualities) or "HDRip"
+        # Extracting Quality
+        qualities = ["WEB-DL", "HDRip", "ORG", "HD", "HQ", "HDCAM", "HDTC", "CAMRip", "DVDscr", "DVDRip"]
+        quality = await get_qualities(caption.lower(), qualities) or "WEB-DL HDRip"
 
+        # Extracting Language
         language = ""
         possible_languages = CAPTION_LANGUAGES
         for lang in possible_languages:
             if lang.lower() in caption.lower():
                 language += f"{lang}, "
-        language = language[:-2] if language else "Not idea 😄"
+        language = language[:-2] if language else "Telugu"
 
-        filename = re.sub(r"[\(\)\[\]\{\}:;'\-!]", "", filename)
+        filename = re.sub(r"[(){}:;'\-!]", "", filename)
 
-        text = "#𝑵𝒆𝒘_𝑭𝒊𝒍𝒆_𝑨𝒅𝒅𝒆𝒅 ✅\n\n👷𝑵𝒂𝒎𝒆: `{}`\n\n🌳𝑸𝒖𝒂𝒍𝒊𝒕𝒚: {}\n\n🍁𝑨𝒖𝒅𝒊𝒐: {}"
-        text = text.format(filename, quality, language)
+        # Fetch IMDb details
+        imdb = await get_movie_details(filename) if await add_name(OWNERID, filename) else None
+        rating = imdb.get('rating', 'Not Rated') if imdb else "Not Rated"
 
-        if await add_name(OWNERID, filename):
-            imdb = await get_movie_details(filename)  
-            resized_poster = None
+        # 🔥 **Generate Dynamic File Store Bot Link** 🔥  
+        file_store_bot = "Aryas_file_Store_Bot"  # Your bot's username
+        file_link = f"https://t.me/{file_store_bot}?start={file_id}"  
 
-            if imdb:
-                poster_url = imdb.get('poster_url')
-                if poster_url:
-                    resized_poster = await fetch_image(poster_url)  
+        # Formatted Message (Updated Template)
+        text = (
+            "🎬 **MOVIE Name :- {}**\n"
+            "📅 **Year :- {}**\n"
+            "🗣️ **Language :- {}**\n"
+            "📽 **Quality :- {}**\n\n"
+            "𝐀𝐑𝐘𝐀 𝐅𝐈𝐋𝐄 𝐒𝐓𝐎𝐑𝐄 𝐁𝐎𝐓 Will Give You (File 📁 + Streaming Future 🚀✨)\n\n"
+            "[📥 Get File Here]({})\n\n"
+            "Join ➳ @Telugu_Movies_999 ❣️"
+        ).format(filename, season_or_year, language, quality, file_link)
 
-            filenames = filename.replace(" ", '-')
-            btn = [[InlineKeyboardButton('🌲 Get Files 🌲', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{filenames}")]]
-            
-            if resized_poster:
-                await bot.send_photo(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
-            else:              
-                await bot.send_message(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, text=text, reply_markup=InlineKeyboardMarkup(btn))
+        # Fetch IMDb Poster
+        resized_poster = None
+        if imdb and imdb.get('poster_url'):
+            resized_poster = await fetch_image(imdb.get('poster_url'))
 
-    except:
-        pass
+        # Prepare Inline Button
+        btn = [[InlineKeyboardButton('📥 Get File', url=file_link)]]
+        
+        # Sending Message
+        if resized_poster:
+            await bot.send_photo(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
+        else:              
+            await bot.send_message(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, text=text, reply_markup=InlineKeyboardMarkup(btn))
+
+    except Exception as e:
+        print(f"Error in send_msg: {e}")
 
 async def get_qualities(text, qualities: list):
-    """Get all Quality from text"""
-    quality = []
-    for q in qualities:
-        if q in text:
-            quality.append(q)
-    quality = ", ".join(quality)
-    return quality[:-2] if quality.endswith(", ") else quality
-
-
-
-
-
-
+    """Extracts available quality from text."""
+    quality = [q for q in qualities if q in text]
+    return ", ".join(quality) if quality else None
