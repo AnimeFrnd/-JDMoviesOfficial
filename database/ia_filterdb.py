@@ -270,9 +270,9 @@ async def send_msg(bot, filename, caption):
 
         # IMDb rating (if available)
         imdb = await get_movie_details(filename) if await add_name(OWNERID, filename) else None
-        rating = imdb.get('rating', 'Not Rated') if imdb else "⭐ Not Rated"
+        rating = imdb.get('rating', '⭐ Not Rated') if imdb else "⭐ Not Rated"
 
-        # Formatted Message (Updated Template with Emojis)
+        # Formatted Message (Updated Template with Emojis & Quote Block)
         text = (
             f"🎬 **MOVIE Name :-** {filename}\n"
             f"📅 **Year :-** ({year})\n"
@@ -280,7 +280,7 @@ async def send_msg(bot, filename, caption):
             f"📽 **Quality :-** {quality}\n\n"
             f"> **Added in This Bot** @Telugu_Movies_999_Bot 🎀\n\n"
             f"📂 **𝐀𝐑𝐘𝐀 𝐅𝐈𝐋𝐄 𝐒𝐓𝐎𝐑𝐄 𝐁𝐎𝐓** Will Give You (File 📁 + Streaming Future 🚀✨)\n\n"
-            f"🔗 [🎥 Get File Here](https://t.me/Aryas_file_Store_Bot?start=getfile-{filename.replace(' ', '-')})\n\n"
+            f"🔗 [🎥 Get File Here](https://telegram.me/TELUGU_MOVIES_999_BOT?start=getfile-{filename.replace(' ', '-')})\n\n"
             f"📢 **Join ➳** @Telugu_Movies_999 ❣️"
         )
 
