@@ -4,14 +4,14 @@ class script(object):
 I Aᴍ Lᴀᴛᴇꜱᴛ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Pᴏᴡᴇʀꜰᴜʟ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ. I Cᴀɴ Sʜᴀʀᴇ "Aɴɪᴍᴇ,Sᴇʀɪᴇs Aɴᴅ Dᴜʙʙᴇᴅ Mᴏᴠɪᴇs & Eᴛᴄ..." Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Sᴇᴇ ᴛʜᴇ Mᴀɢɪᴄ🪄
 
 Oᴜʀ Aɴᴏᴛʜᴇʀ Bᴏᴛ 🍁 - <a href="https://t.me/Vs_auto_filter_bot">𝐁𝐎𝐓</a> (ᴀʟʟ ᴍᴀʀᴠᴇʟ ᴍᴏᴠɪᴇs "Free" ✅) 
-\n\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
+\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
     
     GSTART_TXT = """<b><blockquote>ʜᴇʟʟᴏ {} 👋,</blockquote>
     
 I Aᴍ Lᴀᴛᴇꜱᴛ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Pᴏᴡᴇʀꜰᴜʟ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ. I Cᴀɴ Sʜᴀʀᴇ "Aɴɪᴍᴇ,Sᴇʀɪᴇs Aɴᴅ Dᴜʙʙᴇᴅ Mᴏᴠɪᴇs & Eᴛᴄ..." Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Sᴇᴇ ᴛʜᴇ Mᴀɢɪᴄ🪄
 
 Oᴜʀ Aɴᴏᴛʜᴇʀ Bᴏᴛ 🍁 - <a href="https://t.me/Vs_auto_filter_bot">𝐁𝐎𝐓</a> (ᴀʟʟ ᴍᴀʀᴠᴇʟ ᴍᴏᴠɪᴇs "Free" ✅) 
-\n\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
+\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
     
     HELP_TXT = """<b>ʜᴇʏ {},
     
@@ -281,7 +281,7 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = """<b><a href="https://t.me/Telugu_Movies_999">{file_Caption}</a></b>\n\n<b>📤 Uploaded By : <a href=https://t.me/Telugu_Movies_999>Telugu Movies 999🌺</a></b>"""
+    CAPTION = """<b><a href="https://t.me/Telugu_Movies_999">{file_Name}</a></b>\n\n<b>📤 Uploaded By : <a href=https://t.me/Telugu_Movies_999>Telugu Movies 999🌺</a></b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>🏷 Title</b>: <a href={url}>{title}</a>
