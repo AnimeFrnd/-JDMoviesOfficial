@@ -251,9 +251,9 @@ def unpack_new_file_id(new_file_id):
     return file_id, file_ref
 
 
-async def send_msg(bot, filename, caption, file_id): 
+async def send_msg(bot, filename, caption): 
     try:
-        # Cleaning filename and caption (removing unwanted characters)
+        # Cleaning filename and caption
         filename = re.sub(r'@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', filename).strip()
         caption = re.sub(r'@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', caption).strip()
         
@@ -261,64 +261,31 @@ async def send_msg(bot, filename, caption, file_id):
         year_match = re.search(r"\b(19|20)\d{2}\b", caption)
         year = year_match.group(0) if year_match else "Unknown"
 
-        # Extracting Season
-        season_match = re.search(r"(?i)(?:s|season)0*(\d{1,2})", caption) or re.search(r"(?i)(?:s|season)0*(\d{1,2})", filename)
-        season = f"Season {season_match.group(1)}" if season_match else "Unknown"
-
-        # Determine Season or Year
-        season_or_year = season if "Season" in season else f"({year})"
-
         # Extracting Quality
-        qualities = ["WEB-DL", "HDRip", "ORG", "HD", "HQ", "HDCAM", "HDTC", "CAMRip", "DVDscr", "DVDRip"]
-        quality = await get_qualities(caption.lower(), qualities) or "WEB-DL HDRip"
+        qualities = ["WEB-DL", "HDRip", "HDCAM", "HQ", "HDTS", "CAMRip", "HDTC", "DVDscr", "DVDRip"]
+        quality = next((q for q in qualities if q.lower() in caption.lower()), "WEB-DL HDRip")
 
         # Extracting Language
-        language = ""
-        possible_languages = CAPTION_LANGUAGES
-        for lang in possible_languages:
-            if lang.lower() in caption.lower():
-                language += f"{lang}, "
-        language = language[:-2] if language else "Telugu"
+        language = "🎙️ Telugu" if "telugu" in caption.lower() else "🌍 Unknown"
 
-        filename = re.sub(r"[(){}:;'\-!]", "", filename)
-
-        # Fetch IMDb details
+        # IMDb rating (if available)
         imdb = await get_movie_details(filename) if await add_name(OWNERID, filename) else None
-        rating = imdb.get('rating', 'Not Rated') if imdb else "Not Rated"
+        rating = imdb.get('rating', 'Not Rated') if imdb else "⭐ Not Rated"
 
-        # 🔥 **Generate Dynamic File Store Bot Link** 🔥  
-        file_store_bot = "Aryas_file_Store_Bot"  # Your bot's username
-        file_link = f"https://t.me/{file_store_bot}?start={file_id}"  
-
-        # Formatted Message (Updated Template)
+        # Formatted Message (Updated Template with Emojis)
         text = (
-            "🎬 **MOVIE Name :- {}**\n"
-            "📅 **Year :- {}**\n"
-            "🗣️ **Language :- {}**\n"
-            "📽 **Quality :- {}**\n\n"
-            "𝐀𝐑𝐘𝐀 𝐅𝐈𝐋𝐄 𝐒𝐓𝐎𝐑𝐄 𝐁𝐎𝐓 Will Give You (File 📁 + Streaming Future 🚀✨)\n\n"
-            "[📥 Get File Here]({})\n\n"
-            "Join ➳ @Telugu_Movies_999 ❣️"
-        ).format(filename, season_or_year, language, quality, file_link)
+            f"🎬 **MOVIE Name :-** {filename}\n"
+            f"📅 **Year :-** ({year})\n"
+            f"🗣️ **Language :-** {language}\n"
+            f"📽 **Quality :-** {quality}\n\n"
+            f"> **Added in This Bot** @Telugu_Movies_999_Bot 🎀\n\n"
+            f"📂 **𝐀𝐑𝐘𝐀 𝐅𝐈𝐋𝐄 𝐒𝐓𝐎𝐑𝐄 𝐁𝐎𝐓** Will Give You (File 📁 + Streaming Future 🚀✨)\n\n"
+            f"🔗 [🎥 Get File Here](https://t.me/Aryas_file_Store_Bot?start=getfile-{filename.replace(' ', '-')})\n\n"
+            f"📢 **Join ➳** @Telugu_Movies_999 ❣️"
+        )
 
-        # Fetch IMDb Poster
-        resized_poster = None
-        if imdb and imdb.get('poster_url'):
-            resized_poster = await fetch_image(imdb.get('poster_url'))
-
-        # Prepare Inline Button
-        btn = [[InlineKeyboardButton('📥 Get File', url=file_link)]]
-        
         # Sending Message
-        if resized_poster:
-            await bot.send_photo(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
-        else:              
-            await bot.send_message(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, text=text, reply_markup=InlineKeyboardMarkup(btn))
+        await bot.send_message(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, text=text)
 
     except Exception as e:
-        print(f"Error in send_msg: {e}")
-
-async def get_qualities(text, qualities: list):
-    """Extracts available quality from text."""
-    quality = [q for q in qualities if q in text]
-    return ", ".join(quality) if quality else None
+        print(f"❌ Error in send_msg: {e}")
