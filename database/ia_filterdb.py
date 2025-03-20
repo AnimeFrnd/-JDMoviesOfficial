@@ -253,39 +253,68 @@ def unpack_new_file_id(new_file_id):
 
 async def send_msg(bot, filename, caption): 
     try:
-        # Cleaning filename and caption
-        filename = re.sub(r'@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', filename).strip()
-        caption = re.sub(r'@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', caption).strip()
+        filename = re.sub(r'\@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', filename).strip()
+        caption = re.sub(r'\@\S+|\@\S+|\b@\S+|\bwww\.\S+', '', caption).strip()
         
-        # Extracting Year
         year_match = re.search(r"\b(19|20)\d{2}\b", caption)
         year = year_match.group(0) if year_match else "Unknown"
 
-        # Extracting Quality
-        qualities = ["WEB-DL", "HDRip", "HDCAM", "HQ", "HDTS", "CAMRip", "HDTC", "DVDscr", "DVDRip"]
-        quality = next((q for q in qualities if q.lower() in caption.lower()), "WEB-DL HDRip")
+        pattern = r"(?i)(?:s|season)0*(\d{1,2})"
+        season = re.search(pattern, caption) or re.search(pattern, filename)
+        season = season.group(1) if season else None 
 
-        # Extracting Language
-        language = "🎙️ Telugu" if "telugu" in caption.lower() else "🌍 Unknown"
+        if year != "Unknown":
+            filename = filename[: filename.find(year) + 4]  
+        elif season and season in filename:
+            filename = filename[: filename.find(season) + 1]
 
-        # IMDb rating (if available)
-        imdb = await get_movie_details(filename) if await add_name(OWNERID, filename) else None
-        rating = imdb.get('rating', '⭐ Not Rated') if imdb else "⭐ Not Rated"
+        qualities = ["ORG", "org", "hdcam", "HDCAM", "HQ", "hq", "HDRip", "hdrip", "camrip", "CAMRip", "hdtc", "predvd", "DVDscr", "dvdscr", "dvdrip", "dvdscr", "HDTC", "dvdscreen", "HDTS", "hdts"]
+        quality = await get_qualities(caption.lower(), qualities) or "HDRip"
 
-        # Formatted Message (Updated Template with Emojis & Quote Block)
-        text = (
-            f"🎬 **MOVIE Name :-** {filename}\n"
-            f"📅 **Year :-** ({year})\n"
-            f"🗣️ **Language :-** {language}\n"
-            f"📽 **Quality :-** {quality}\n\n"
-            f"> **Added in This Bot** @Telugu_Movies_999_Bot 🎀\n\n"
-            f"📂 **𝐀𝐑𝐘𝐀 𝐅𝐈𝐋𝐄 𝐒𝐓𝐎𝐑𝐄 𝐁𝐎𝐓** Will Give You (File 📁 + Streaming Future 🚀✨)\n\n"
-            f"🔗 [🎥 Get File Here](https://telegram.me/TELUGU_MOVIES_999_BOT?start=getfile-{filename.replace(' ', '-')})\n\n"
-            f"📢 **Join ➳** @Telugu_Movies_999 ❣️"
-        )
+        language = ""
+        possible_languages = CAPTION_LANGUAGES
+        for lang in possible_languages:
+            if lang.lower() in caption.lower():
+                language += f"{lang}, "
+        language = language[:-2] if language else "Unknown"
 
-        # Sending Message
-        await bot.send_message(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, text=text)
+        filename = re.sub(r"[\{\}:;'\-!]", "", filename)
 
-    except Exception as e:
-        print(f"❌ Error in send_msg: {e}")
+        text = f"""🎬 Title : {filename}
+🗓 Year : {year}
+🔊 Audio : {language}
+💿 Quality : {quality}
+📥 Uploaded By : @Telugu_Movies_999
+
+> Check In This Group 👇 (U can Get Any Movie)
+> Group Link - https://t.me/+r5NTdf1uPVA4OTll
+"""
+
+        if await add_name(OWNERID, filename):
+            imdb = await get_movie_details(filename)  
+            resized_poster = None
+
+            if imdb:
+                poster_url = imdb.get('poster_url')
+                if poster_url:
+                    resized_poster = await fetch_image(poster_url)  
+
+            filenames = filename.replace(" ", '-')
+            btn = [[InlineKeyboardButton('📁 Gᴇᴛ Fɪʟᴇs 📁', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{filenames}")]]
+            
+            if resized_poster:
+                await bot.send_photo(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
+            else:              
+                await bot.send_message(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, text=text, reply_markup=InlineKeyboardMarkup(btn))
+
+    except:
+        pass
+
+async def get_qualities(text, qualities: list):
+    """Get all Quality from text"""
+    quality = []
+    for q in qualities:
+        if q in text:
+            quality.append(q)
+    quality = ", ".join(quality)
+    return quality[:-2] if quality.endswith(", ") else quality
