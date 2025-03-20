@@ -284,10 +284,10 @@ async def send_msg(bot, filename, caption):
 🗓 Year : {year}
 🔊 Audio : {language}
 💿 Quality : {quality}
-📥 Uploaded By : @Telugu_Movies_999
+📥 Uᴘʟᴏᴀᴅᴇᴅ Bʏ : @Telugu_Movies_999
 
-> Check In This Group 👇 (U can Get Any Movie)
-> Group Link - https://t.me/+r5NTdf1uPVA4OTll
+> Cʜᴇᴄᴋ Iɴ Tʜɪs Gʀᴏᴜᴘ 👇 (U Cᴀɴ Gᴇᴛ Aɴʏ Mᴏᴠɪᴇ)
+> Gʀᴏᴜᴘ Lɪɴᴋ - https://t.me/+r5NTdf1uPVA4OTll
 """
 
         if await add_name(OWNERID, filename):
@@ -300,7 +300,7 @@ async def send_msg(bot, filename, caption):
                     resized_poster = await fetch_image(poster_url)  
 
             filenames = re.sub(r"[^\w\d-]", "",filename.replace(" ", "-"))
-            btn = [[InlineKeyboardButton('🌲 Get Files 🌲', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{filenames}")]]
+            btn = [[InlineKeyboardButton('📁 Gᴇᴛ Fɪʟᴇs 📁', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{filenames}")]]
             
             if resized_poster:
                 await bot.send_photo(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
