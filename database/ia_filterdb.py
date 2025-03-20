@@ -11,6 +11,7 @@ from info import CAPTION_LANGUAGES, DATABASE_URI, DATABASE_URI2, DATABASE_NAME, 
 from utils import get_settings, save_group_settings, temp, get_status
 from database.users_chats_db import add_name
 from .Imdbposter import get_movie_details, fetch_image
+from urllib.parse import quote
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 logger = logging.getLogger(__name__)
@@ -300,7 +301,8 @@ async def send_msg(bot, filename, caption):
                     resized_poster = await fetch_image(poster_url)  
 
             filenames = filename.replace(" ", '-')
-            btn = [[InlineKeyboardButton('📁 Gᴇᴛ Fɪʟᴇs 📁', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{filenames}")]]
+            encoded_filename = quote(filenames)  # Encode special characters
+            btn = [[InlineKeyboardButton('📁 Gᴇᴛ Fɪʟᴇs 📁', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{encoded_filename}")]]
             
             if resized_poster:
                 await bot.send_photo(chat_id=DEENDAYAL_MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
