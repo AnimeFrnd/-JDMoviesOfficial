@@ -346,57 +346,69 @@ async def advantage_spoll_choker(bot, query):
                 reqstr1 = query.from_user.id if query.from_user else 0
                 reqstr = await bot.get_users(reqstr1)
                 
-
+                
 @Client.on_callback_query(filters.regex(r"^spol"))
 async def pm_spoll_choker(bot, query):
-    print(f"Callback received: {query.data}")  # Debugging
-    try:
-        _, id, user = query.data.split('#')
-        if int(user) != 0 and query.from_user.id != int(user):
-            return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
-        
-        movie = await get_poster(id, id=True)
-        search = movie.get('title')
-        await query.answer('ᴄʜᴇᴄᴋɪɴɢ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ 🌚')
-        
-        files, offset, total_results = await get_search_results(query.message.chat.id, search)
-        if files:
-            await auto_filter(bot, query, (search, files, offset, total_results))
-        else:
+    _, id, user = query.data.split('#')
+    if int(user) != 0 and query.from_user.id != int(user):
+        return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
+    movie = await get_poster(id, id=True)
+    search = movie.get('title')
+    await query.answer('ᴄʜᴇᴄᴋɪɴɢ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ 🌚')
+    files, offset, total_results = await get_search_results(query.message.chat.id, search)
+    if files:
+        k = (search, files, offset, total_results)
+        await auto_filter(bot, query, k)
+    else:
+        try:
             reqstr1 = query.from_user.id if query.from_user else 0
             reqstr = await bot.get_users(reqstr1)
-            
             if NO_RESULTS_MSG:
                 safari = [[
-                    InlineKeyboardButton('ɴᴏᴛ ʀᴇʟᴇᴀsᴇ 📅', callback_data=f"spol:not_release:{reqstr1}:{search}"),
-                    InlineKeyboardButton('ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ 🙅', callback_data=f"spol:not_available:{reqstr1}:{search}")
+                    InlineKeyboardButton('ɴᴏᴛ ʀᴇʟᴇᴀsᴇ 📅', callback_data=f"not_release:{reqstr1}:{search}"),
+                    InlineKeyboardButton('ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ 🙅', callback_data=f"not_available:{reqstr1}:{search}")
                 ],[
-                    InlineKeyboardButton('ᴜᴘʟᴏᴀᴅᴇᴅ ✅', callback_data=f"spol:uploaded:{reqstr1}:{search}")
+                    InlineKeyboardButton('ᴜᴘʟᴏᴀᴅᴇᴅ ✅', callback_data=f"uploaded:{reqstr1}:{search}")
                 ],[
-                    InlineKeyboardButton('ɪɴᴠᴀʟɪᴅ ғᴏʀᴍᴀᴛ 🙅', callback_data=f"spol:series:{reqstr1}:{search}"),
-                    InlineKeyboardButton('sᴇʟʟ ᴍɪsᴛᴀᴋ✍️', callback_data=f"spol:spelling_error:{reqstr1}:{search}")
+                    InlineKeyboardButton('ɪɴᴠᴀʟɪᴅ ғᴏʀᴍᴀᴛ🙅', callback_data=f"series:{reqstr1}:{search}"),
+                    InlineKeyboardButton('sᴇʟʟ ᴍɪsᴛᴇᴋ✍️', callback_data=f"spelling_error:{reqstr1}:{search}")
                 ],[
-                    InlineKeyboardButton('⁉️ Close ⁉️', callback_data=f"spol:close_data")
+                    InlineKeyboardButton('⁉️ Close ⁉️', callback_data=f"close_data")
                 ]]
-                
                 reply_markup = InlineKeyboardMarkup(safari)
-                total = await bot.get_chat_members_count(query.message.chat.id)
-                B_NAME = getattr(temp, 'B_NAME', 'YourBot')  # Fallback if temp.B_NAME is missing
-                
-                await bot.send_message(
-                    chat_id=LOG_CHANNEL,
-                    text=(script.NORSLTS.format(query.message.chat.title, query.message.chat.id, total, B_NAME, reqstr.mention, search)),
-                    reply_markup=reply_markup
-                )
-            
+                total=await bot.get_chat_members_count(query.message.chat.id)
+                await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(query.message.chat.title, query.message.chat.id, total, temp.B_NAME, reqstr.mention, search)), reply_markup=InlineKeyboardMarkup(safari))
             k = await query.message.edit(script.MVE_NT_FND)
             await asyncio.sleep(60)
             await k.delete()
-            
             try:
                 await query.message.reply_to_message.delete()
-            except Exception as e:
-                print(f"Error deleting message: {e}")
+            except:
+                pass
+        except Exception as e:
+            reqstr1 = query.from_user.id if query.from_user else 0
+            reqstr = await bot.get_users(reqstr1)
+            if NO_RESULTS_MSG:
+                safari = [[
+                    InlineKeyboardButton('ɴᴏᴛ ʀᴇʟᴇᴀsᴇ 📅', callback_data=f"not_release:{reqstr1}:{search}"),
+                    InlineKeyboardButton('ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ 🙅', callback_data=f"not_available:{reqstr1}:{search}")
+                ],[
+                    InlineKeyboardButton('ᴜᴘʟᴏᴀᴅᴇᴅ ✅', callback_data=f"uploaded:{reqstr1}:{search}")
+                ],[
+                    InlineKeyboardButton('ɪɴᴠᴀʟɪᴅ ғᴏʀᴍᴀᴛ🙅', callback_data=f"series:{reqstr1}:{search}"),
+                    InlineKeyboardButton('sᴇʟʟ ᴍɪsᴛᴇᴋ✍️', callback_data=f"spelling_error:{reqstr1}:{search}")
+                ],[
+                    InlineKeyboardButton('⦉ ᴄʟᴏsᴇ ⦊️', callback_data=f"close_data")
+                ]]
+                reply_markup = InlineKeyboardMarkup(safari)
+                await bot.send_message(chat_id=LOG_CHANNEL, text=(script.PMNORSLTS.format(temp.B_NAME, reqstr.mention, search)), reply_markup=InlineKeyboardMarkup(safari))
+            k = await query.message.edit(script.MVE_NT_FND)
+            await asyncio.sleep(60)
+            await k.delete()
+            try:
+                await query.message.reply_to_message.delete()
+            except:
+                pass
     
     except Exception as e:
         print(f"Error in pm_spoll_choker: {e}")
