@@ -273,14 +273,13 @@ Nᴀᴍᴇ - {}
 
 🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)"""
 
-    NORSLTS = """
-#NoResult
-★ Gʀᴏᴜᴘ Nᴀᴍᴇ <b>: {}</b>(<code>{}</code>)
-★ Tᴏᴛᴀʟ Usᴇʀs {}
-★ Bᴏᴛ {}
-★ Usᴇʀ <b>: {}</b>
-
-★ Mᴇssᴀɢᴇ <code>{}</code>"""
+    NORSLTS = """ 
+ #NoResults
+ 
+ Iᴅ : <code>{}</code>
+ Nᴀᴍᴇ : {}
+ 
+ Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
     CAPTION = """<b><a href="https://t.me/Telugu_Movies_999">{file_name}</a></b>\n\n<b>📤 Uploaded By : <a href=https://t.me/Telugu_Movies_999>Telugu Movies 999🌺</a></b>"""
 
