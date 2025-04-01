@@ -346,13 +346,8 @@ async def advantage_spoll_choker(bot, query):
                 reqstr1 = query.from_user.id if query.from_user else 0
                 reqstr = await bot.get_users(reqstr1)
                 
-
-                 if NO_RESULTS_MSG:
-                     await bot.send_message(chat_id=BIN_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
-    
-    except Exception as e:
-        print(f"Error in pm_spoll_choker: {e}")
-
+                if NO_RESULTS_MSG:
+                    await bot.send_message(chat_id=BIN_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
                 
                 # Create the button for contacting admin
                 contact_admin_button = InlineKeyboardMarkup(
@@ -1687,16 +1682,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
                     InlineKeyboardButton('✨ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ✨', url=f'http://t.me/{temp.U_NAME}?startgroup=start')
                 ],[
-                    InlineKeyboardButton('🔍 Tᴏᴘ Sᴇᴀʀᴄʜɪɴɢ', callback_data="topsearch"),
-                    InlineKeyboardButton(' DVDRIPS 📀', url=f'https://t.me/EarlywatchBot')
+                    InlineKeyboardButton(' Mᴀʀᴠᴇʟ & Dᴄ 🎆', url=f'https://t.me/vs_Auto_Filter_bot'),
+                    InlineKeyboardButton(' Aʟʟ Mᴏᴠɪᴇs 🎥', url=f'https://t.me/telugu_movies_999_bot')
                 ],[
-                    InlineKeyboardButton('Dᴏɴᴀᴛɪᴏɴ 🌺', callback_data='donation'),
-                   # InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
-                   # InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
+                    InlineKeyboardButton('🦋 Pʀᴇᴍɪᴜᴍ', callback_data='seeplans'),
+                    InlineKeyboardButton('Rᴇғᴇʀ 🌺', callback_data="reffff")
                 ],[
-                    InlineKeyboardButton('🪅 Mᴀɪɴ Cʜᴀɴɴᴇʟ 🪅', url=f'https://t.me/Telugu_Movies_999')
+                    InlineKeyboardButton('🎀 Aɴɪᴍᴇs Mᴀɪɴ Cʜᴀɴɴᴇʟ 🎀', url=f'https://t.me/anime_Movies_and_Series_Telugu')
                 ],[
-                    InlineKeyboardButton('🔖 ᴍɪᴅᴅʟᴇ ᴄʟᴀss ʙᴇꜱᴛ ᴅᴇᴀʟꜱ 🔖', url=f'https://t.me/Vs_Best_Deals')
+                    InlineKeyboardButton('🛒 ᴍɪᴅᴅʟᴇ ᴄʟᴀss ʙᴇꜱᴛ ᴅᴇᴀʟꜱ 🛒', url=f'https://t.me/Vs_Best_Deals')
                   ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1824,18 +1818,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "seeplans":
         btn = [[
-            InlineKeyboardButton('🤝🏻 Rᴇғᴇʀ & Gᴇᴛ Pʀᴇᴍɪᴜᴍ ', callback_data='reffff') 
+          #  InlineKeyboardButton('🤝🏻 Rᴇғᴇʀ & Gᴇᴛ Pʀᴇᴍɪᴜᴍ ', callback_data='reffff') 
         ],[
-            InlineKeyboardButton('🥉 ʙʀᴏɴᴢᴇ ', callback_data='broze'),
-            InlineKeyboardButton('🥈 ꜱɪʟᴠᴇʀ ', callback_data='silver')
+           # InlineKeyboardButton('🥉 ʙʀᴏɴᴢᴇ ', callback_data='broze'),
+          #  InlineKeyboardButton('🥈 ꜱɪʟᴠᴇʀ ', callback_data='silver')
         ],[
-            InlineKeyboardButton('🥇 ɢᴏʟᴅ ', callback_data='gold'),
-            InlineKeyboardButton('💘 ᴘʟᴀᴛɪɴᴜᴍ ', callback_data='platinum')
+          #  InlineKeyboardButton('🥇 ɢᴏʟᴅ ', callback_data='gold'),
+          #  InlineKeyboardButton('💘 ᴘʟᴀᴛɪɴᴜᴍ ', callback_data='platinum')
         ],[
-            InlineKeyboardButton('💎 ᴅɪᴀᴍᴏɴᴅ ', callback_data='diamond'),
-            InlineKeyboardButton('🤦 ᴏᴛʜᴇʀ ', callback_data='other')
+          #  InlineKeyboardButton('💎 ᴅɪᴀᴍᴏɴᴅ ', callback_data='diamond'),
+         #   InlineKeyboardButton('🤦 ᴏᴛʜᴇʀ ', callback_data='other')
         ],[
-            InlineKeyboardButton('ɢᴇᴛ ғʀᴇᴇ ᴛʀᴀɪʟ ғᴏʀ 𝟻 ᴍɪɴᴜᴛᴇs ☺️', callback_data='free')
+           # InlineKeyboardButton('ɢᴇᴛ ғʀᴇᴇ ᴛʀᴀɪʟ ғᴏʀ 𝟻 ᴍɪɴᴜᴛᴇs ☺️', callback_data='free')
         ],[            
             InlineKeyboardButton('❌ ᴄʟᴏꜱᴇ ❌', callback_data='close_data')
         ]]
@@ -1850,18 +1844,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "premium_info":
         buttons = [[
-            InlineKeyboardButton('🤝🏻 Rᴇғᴇʀ & Gᴇᴛ Pʀᴇᴍɪᴜᴍ ', callback_data='reffff'),
+           # InlineKeyboardButton('🤝🏻 Rᴇғᴇʀ & Gᴇᴛ Pʀᴇᴍɪᴜᴍ ', callback_data='reffff'),
         ],[
-            InlineKeyboardButton('🥉 ʙʀᴏɴᴢᴇ ', callback_data='broze'),
-            InlineKeyboardButton('🥈 ꜱɪʟᴠᴇʀ ', callback_data='silver')
+           # InlineKeyboardButton('🥉 ʙʀᴏɴᴢᴇ ', callback_data='broze'),
+           # InlineKeyboardButton('🥈 ꜱɪʟᴠᴇʀ ', callback_data='silver')
         ],[
-            InlineKeyboardButton('🥇 ɢᴏʟᴅ ', callback_data='gold'),
-            InlineKeyboardButton('💘 ᴘʟᴀᴛɪɴᴜᴍ ', callback_data='platinum')
+           # InlineKeyboardButton('🥇 ɢᴏʟᴅ ', callback_data='gold'),
+           # InlineKeyboardButton('💘 ᴘʟᴀᴛɪɴᴜᴍ ', callback_data='platinum')
         ],[
-            InlineKeyboardButton('💎 ᴅɪᴀᴍᴏɴᴅ ', callback_data='diamond'),
-            InlineKeyboardButton('🤦 ᴏᴛʜᴇʀ ', callback_data='other')
+           # InlineKeyboardButton('💎 ᴅɪᴀᴍᴏɴᴅ ', callback_data='diamond'),
+          #  InlineKeyboardButton('🤦 ᴏᴛʜᴇʀ ', callback_data='other')
         ],[
-            InlineKeyboardButton('ɢᴇᴛ ғʀᴇᴇ ᴛʀᴀɪʟ ғᴏʀ 𝟻 ᴍɪɴᴜᴛᴇs ☺️', callback_data='free')
+           # InlineKeyboardButton('ɢᴇᴛ ғʀᴇᴇ ᴛʀᴀɪʟ ғᴏʀ 𝟻 ᴍɪɴᴜᴛᴇs ☺️', callback_data='free')
         ],[            
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
         ]]
