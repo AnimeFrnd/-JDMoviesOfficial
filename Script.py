@@ -3,15 +3,15 @@ class script(object):
     
 I Aᴍ Lᴀᴛᴇꜱᴛ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Pᴏᴡᴇʀꜰᴜʟ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ. I Cᴀɴ Sʜᴀʀᴇ "Aɴɪᴍᴇ,Sᴇʀɪᴇs Aɴᴅ Dᴜʙʙᴇᴅ Mᴏᴠɪᴇs & Eᴛᴄ..." Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Sᴇᴇ ᴛʜᴇ Mᴀɢɪᴄ🪄
 
-Oᴜʀ Aɴᴏᴛʜᴇʀ Bᴏᴛ 🍁 - <a href="https://t.me/Vs_auto_filter_bot">𝐁𝐎𝐓</a> (ᴀʟʟ ᴍᴀʀᴠᴇʟ ᴍᴏᴠɪᴇs "Free" ✅) 
-\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
+Oᴜʀ Mᴏᴠɪᴇs Wᴇʙ Sɪᴛᴇ 🍁 - <a href="https://jdmoviesofficial.blogspot.com/?m=1">𝙒𝙀𝘽𝙎𝙄𝙏𝙀</a>
+\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/JDMoviesOfficial"> 𝙅𝘿 𝙈𝙊𝙑𝙄𝙀𝙎 𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇❣️</a></blockquote></b>"""
     
     GSTART_TXT = """<b><blockquote>ʜᴇʟʟᴏ {} 👋,</blockquote>
     
 I Aᴍ Lᴀᴛᴇꜱᴛ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Pᴏᴡᴇʀꜰᴜʟ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ. I Cᴀɴ Sʜᴀʀᴇ "Aɴɪᴍᴇ,Sᴇʀɪᴇs Aɴᴅ Dᴜʙʙᴇᴅ Mᴏᴠɪᴇs & Eᴛᴄ..." Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Sᴇᴇ ᴛʜᴇ Mᴀɢɪᴄ🪄
 
-Oᴜʀ Aɴᴏᴛʜᴇʀ Bᴏᴛ 🍁 - <a href="https://t.me/Vs_auto_filter_bot">𝐁𝐎𝐓</a> (ᴀʟʟ ᴍᴀʀᴠᴇʟ ᴍᴏᴠɪᴇs "Free" ✅) 
-\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/Telugu_Movies_999">Telugu Movies 999 ❣️</a></blockquote></b>"""
+Oᴜʀ Mᴏᴠɪᴇs Wᴇʙ Sɪᴛᴇ 🍁 - <a href="https://jdmoviesofficial.blogspot.com/?m=1">𝙒𝙀𝘽𝙎𝙄𝙏𝙀</a>
+\n<blockquote>🦋 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/JDMoviesOfficial"> 𝙅𝘿 𝙈𝙊𝙑𝙄𝙀𝙎 𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇❣️</a></blockquote></b>"""
     
     HELP_TXT = """<b>ʜᴇʏ {},
     
